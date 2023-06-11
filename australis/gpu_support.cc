@@ -24,7 +24,7 @@ BackendFactoryRegister _register_gpu(
       xla::GpuAllocatorConfig config;
       config.preallocate = false;
       return ToAbslStatusOr(xla::GetStreamExecutorGpuClient(
-          true, config, nullptr, /*node_id=*/0));
+          true, config, 0, /*node_id=*/0));
     });
 
 }  // namespace

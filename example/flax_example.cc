@@ -46,8 +46,8 @@ TEST(Flax, OptimizerStep) {
   // TODO(parkers): Properly encode the flax weights structure (or an
   // approximation of it) into the new executable proto type.
   EXPECT_EQ(
-      "((((Buffer(f32[16]), Buffer(f32[4,16])), (Buffer(f32[16]), "
-      "Buffer(f32[16,16])), (Buffer(f32[16]), Buffer(f32[16,16])))))",
+      "(((Buffer(f32[16]), Buffer(f32[4,16])), (Buffer(f32[16]), "
+      "Buffer(f32[16,16])), (Buffer(f32[16]), Buffer(f32[16,16]))))",
       params.ToString());
 }
 

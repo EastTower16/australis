@@ -160,7 +160,7 @@ def serialize_executable_spec(fn):
           fn._lowering.compile_args['in_shardings'] +  # pytype: disable=attribute-error
           fn._lowering.compile_args['out_shardings'],  # pytype: disable=attribute-error
           None)  # pytype: disable=attribute-error
-    e.num_partitions = len(device_assignment)
+    e.num_partitions = len(device_assignment.device_assignment)
     e.use_spmd_partitioning = True
   else:
     e.num_replicas = 1
