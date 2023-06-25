@@ -5,7 +5,7 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 git_repository(
      name = "jax",
-     commit = "0324cac8882e3ea1b2148818ee2322e2b96696da",
+     commit = "c3e242700872c2f7e098a07f3911ee6d2de8132c",
      remote = "https://github.com/google/jax.git",
 )
 
@@ -15,26 +15,33 @@ git_repository(
 #    curl -L https://github.com/tensorflow/tensorflow/archive/<git hash>.tar.gz | sha256sum
 #    and update the sha256 with the result.
 http_archive(
-    name = "org_tensorflow",
-    # sha256 = "bfd40279b247d2d0b0dc5c5a776b595c9d4979889dcf0529c85fe9f6ff7a5255",
-    strip_prefix = "tensorflow-a3e2c692c18649329c4210cf8df2487d2028e267",
+    name = "xla",
+    sha256 = "4ec16aff3862c5a243db956ce558d7a62eb79f5e20747b0e80802a3b0d12e419",
+    strip_prefix = "xla-12de6ec958419b57be248d0acd2d9f757e71748c",
     urls = [
-        "https://github.com/tensorflow/tensorflow/archive/a3e2c692c18649329c4210cf8df2487d2028e267.tar.gz",
+        "https://github.com/openxla/xla/archive/12de6ec958419b57be248d0acd2d9f757e71748c.tar.gz",
     ],
 )
-
 # For development, one can use a local TF repository instead.
 # local_repository(
 #    name = "org_tensorflow",
 #    path = "tensorflow",
 # )
 
-# Initialize TensorFlow's external dependencies.
-load("@org_tensorflow//tensorflow:workspace3.bzl", "tf_workspace3")
-tf_workspace3()
-load("@org_tensorflow//tensorflow:workspace2.bzl", "tf_workspace2")
-tf_workspace2()
-load("@org_tensorflow//tensorflow:workspace1.bzl", "tf_workspace1")
-tf_workspace1()
-load("@org_tensorflow//tensorflow:workspace0.bzl", "tf_workspace0")
-tf_workspace0()
+load("@xla//:workspace4.bzl", "xla_workspace4")
+xla_workspace4()
+
+load("@xla//:workspace3.bzl", "xla_workspace3")
+xla_workspace3()
+
+load("@xla//:workspace2.bzl", "xla_workspace2")
+xla_workspace2()
+
+load("@xla//:workspace1.bzl", "xla_workspace1")
+xla_workspace1()
+
+load("@xla//:workspace0.bzl", "xla_workspace0")
+xla_workspace0()
+
+load("@jax//third_party/flatbuffers:workspace.bzl", flatbuffers = "repo")
+flatbuffers()

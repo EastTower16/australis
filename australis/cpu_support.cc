@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 #include "australis/client-private.h"
-#include "tensorflow/compiler/xla/pjrt/tfrt_cpu_pjrt_client.h"
+#include "xla/pjrt/tfrt_cpu_pjrt_client.h"
 
 namespace aux {
 namespace internal {

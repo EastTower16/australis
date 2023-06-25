@@ -14,7 +14,7 @@ limitations under the License.
 ==============================================================================*/
 #include "australis/internals.h"
 
-#include "tensorflow/compiler/xla/xla_data.pb.h"
+#include "xla/xla_data.pb.h"
 
 namespace aux {
 namespace internal {

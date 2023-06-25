@@ -20,7 +20,7 @@ limitations under the License.
 
 #include "australis/client-private.h"
 #include "australis/internals.h"
-#include "tensorflow/compiler/xla/pjrt/pjrt_client.h"
+#include "xla/pjrt/pjrt_client.h"
 
 namespace aux {
 

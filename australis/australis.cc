@@ -19,7 +19,7 @@ limitations under the License.
 #include <string_view>
 
 #include "absl/strings/str_cat.h"
-#include "tensorflow/core/platform/logging.h"
+#include "absl/log/log.h"
 
 namespace aux {
 

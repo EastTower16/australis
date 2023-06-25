@@ -46,8 +46,8 @@ cc_library(
         "@com_google_absl//absl/container:inlined_vector",
         "@com_google_absl//absl/strings",
         "@com_google_absl//absl/types:optional",
-        "@org_tensorflow//tensorflow/core:tflite_portable_logging",
-        "@org_tensorflow//third_party/eigen3",
+        "@com_google_absl//absl/log",
+        "@xla//third_party/eigen3",
     ],
 )
 
@@ -76,7 +76,7 @@ cc_library(
         "@com_google_absl//absl/strings",
         "@com_google_absl//absl/types:optional",
         "@com_google_absl//absl/types:span",
-        "@org_tensorflow//tensorflow/compiler/xla/pjrt:pjrt_client",
+        "@xla//xla/pjrt:pjrt_client",
     ],
 )
 
@@ -109,7 +109,7 @@ cc_library(
     hdrs = ["internals.h"],
     deps = [
         ":australis",
-        "@org_tensorflow//tensorflow/compiler/xla:xla_data_proto_cc",
+        "@xla//xla:xla_data_proto_cc",
     ],
 )
 
@@ -138,8 +138,8 @@ cc_library(
         "@com_google_absl//absl/container:inlined_vector",
         "@com_google_absl//absl/status:statusor",
         "@com_google_absl//absl/types:span",
-        "@org_tensorflow//tensorflow/compiler/xla/pjrt:pjrt_client",
-        "@org_tensorflow//tensorflow/core/platform:status",
+        "@xla//xla/pjrt:pjrt_client",
+        # "@org_tensorflow//tensorflow/core/platform:status",
     ],
 )
 
@@ -148,7 +148,7 @@ cc_library(
     srcs = ["cpu_support.cc"],
     deps = [
         ":client",
-        "@org_tensorflow//tensorflow/compiler/xla/pjrt:tfrt_cpu_pjrt_client",
+        "@xla//xla/pjrt:tfrt_cpu_pjrt_client",
     ],
     alwayslink = 1,
 )
@@ -170,8 +170,10 @@ cc_library(
     deps = [
         ":client",
         "@jax//jaxlib:gpu_kernels",
-        "@org_tensorflow//tensorflow/compiler/xla/pjrt/gpu:se_gpu_pjrt_client",
-        "@org_tensorflow//tensorflow/compiler/xla/service:gpu_plugin",
+        # "@jax//jaxlib/cuda:cuda_gpu_kernels",
+        "@xla//xla/stream_executor:cuda_platform",
+        "@xla//xla/pjrt/gpu:se_gpu_pjrt_client",
+        "@xla//xla/service:gpu_plugin",
     ],
     alwayslink = 1,
 )

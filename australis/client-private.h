@@ -18,8 +18,7 @@ limitations under the License.
 #include <string_view>
 
 #include "absl/status/statusor.h"
-#include "tensorflow/compiler/xla/pjrt/pjrt_client.h"
-#include "tensorflow/core/platform/status.h"
+#include "xla/pjrt/pjrt_client.h"
 
 namespace aux {
 namespace internal {
@@ -29,7 +28,7 @@ absl::StatusOr<T> ToAbslStatusOr(xla::StatusOr<T> s) {
   if (s.ok()) {
     return absl::StatusOr<T>(std::move(s).value());
   }
-  return tensorflow::ToAbslStatus(s.status());
+  return s.status();
 }
 
 using FactoryFn = absl::StatusOr<std::shared_ptr<xla::PjRtClient>> (*)();
